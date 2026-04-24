@@ -1,0 +1,1154 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="parameters.xacro" />
+
+  <!-- ==================== MATERIALS ==================== -->
+  <material name="blue">
+    <color rgba="0.2 0.2 0.8 1" />
+  </material>
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1" />
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1" />
+  </material>
+
+  <!-- ==================== BASE GROUP ==================== -->
+  <!-- <link name="base_footprint">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${base_footprint_mass}" />
+      <inertia ixx="${base_footprint_inertia}" ixy="0" ixz="0" iyy="${base_footprint_inertia}" iyz="0" izz="${base_footprint_inertia}" />
+    </inertial>
+  </link> -->
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="${base_link_origin}" rpy="0 0 0" />
+      <mass value="${base_link_mass}" />
+      <inertia ixx="${base_link_inertia}" ixy="0" ixz="0" iyy="${base_link_inertia}" iyz="0" izz="${base_link_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 -0.1 0.0" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="${base_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 -0.1 0.0" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="${base_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_rotation_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${base_rotation_mass}" />
+      <inertia ixx="${base_rotation_inertia}" ixy="0" ixz="0" iyy="${base_rotation_inertia}" iyz="0" izz="${base_rotation_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 -0.1 0.0" rpy="0.0 3.1416 0.0" />
+      <geometry>
+        <mesh filename="${base_rotation_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1 -0.1 0.0" rpy="0.0 3.1416 0.0" />
+      <geometry>
+        <mesh filename="${base_rotation_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_link_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${base_link_3_mass}" />
+      <inertia ixx="${base_link_3_inertia}" ixy="0" ixz="0" iyy="${base_link_3_inertia}" iyz="0" izz="${base_link_3_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${base_link_3_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_gray}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${base_link_3_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_link_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${base_link_4_mass}" />
+      <inertia ixx="${base_link_4_inertia}" ixy="0" ixz="0" iyy="${base_link_4_inertia}" iyz="0" izz="${base_link_4_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.09 0.015 -0.02" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${base_link_4_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.09 0.015 -0.02" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${base_link_4_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_link_5">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${base_link_5_mass}" />
+      <inertia ixx="${base_link_5_inertia}" ixy="0" ixz="0" iyy="${base_link_5_inertia}" iyz="0" izz="${base_link_5_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.11 -0.015 -0.02" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${base_link_5_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.11 -0.015 -0.02" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${base_link_5_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ==================== RIGHT SHOULDER GROUP ==================== -->
+  <link name="shoulder_right_link">
+    <inertial>
+      <origin xyz="${shoulder_right_origin}" rpy="0 0 0" />
+      <mass value="${shoulder_mass}" />
+      <inertia ixx="${shoulder_inertia}" ixy="0" ixz="0" iyy="${shoulder_inertia}" iyz="0" izz="${shoulder_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 0.0 -0.08" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${shoulder_right_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 0.0 -0.08" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${shoulder_right_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="shoulder_right_link_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${shoulder_small_mass}" />
+      <inertia ixx="${shoulder_small_inertia}" ixy="0" ixz="0" iyy="${shoulder_small_inertia}" iyz="0" izz="${shoulder_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.02 -0.04" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${shoulder_right_1_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.02 -0.04" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${shoulder_right_1_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="shoulder_right_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${shoulder_small_mass}" />
+      <inertia ixx="${shoulder_small_inertia}" ixy="0" ixz="0" iyy="${shoulder_small_inertia}" iyz="0" izz="${shoulder_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.09 0.0 0.0" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${shoulder_right_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.09 0.0 0.0" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${shoulder_right_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ==================== LEFT SHOULDER GROUP ==================== -->
+  <link name="shoulder_left_link">
+    <inertial>
+      <origin xyz="${shoulder_left_origin}" rpy="0 0 0" />
+      <mass value="${shoulder_mass}" />
+      <inertia ixx="${shoulder_inertia}" ixy="0" ixz="0" iyy="${shoulder_inertia}" iyz="0" izz="${shoulder_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.0 -0.08" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${shoulder_left_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.0 -0.08" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${shoulder_left_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="shoulder_left_link_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${shoulder_small_mass}" />
+      <inertia ixx="${shoulder_small_inertia}" ixy="0" ixz="0" iyy="${shoulder_small_inertia}" iyz="0" izz="${shoulder_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 0.0 -0.04" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${shoulder_left_1_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 0.0 -0.04" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${shoulder_left_1_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="shoulder_left_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${shoulder_small_mass}" />
+      <inertia ixx="${shoulder_small_inertia}" ixy="0" ixz="0" iyy="${shoulder_small_inertia}" iyz="0" izz="${shoulder_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 0.0 0.0" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${shoulder_left_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 0.0 0.0" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${shoulder_left_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ==================== ELBOW GROUP ==================== -->
+  <link name="elbow_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${elbow_mass}" />
+      <inertia ixx="${elbow_inertia}" ixy="0" ixz="0" iyy="${elbow_inertia}" iyz="0" izz="${elbow_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.09 0.04 -0.08" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${elbow_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.09 0.04 -0.08" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${elbow_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="elbow_support_link">
+    <inertial>
+      <origin xyz="${elbow_support_origin}" rpy="0 0 0" />
+      <mass value="${elbow_mass}" />
+      <inertia ixx="${elbow_inertia}" ixy="0" ixz="0" iyy="${elbow_inertia}" iyz="0" izz="${elbow_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.1 -0.1" rpy="1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${elbow_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.1 -0.1" rpy="1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${elbow_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="elbow_rotation_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${elbow_mass}" />
+      <inertia ixx="${elbow_inertia}" ixy="0" ixz="0" iyy="${elbow_inertia}" iyz="0" izz="${elbow_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.1 -0.1" rpy="1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${elbow_rotation_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.1 -0.1" rpy="1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${elbow_rotation_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ==================== WRIST GROUP ==================== -->
+  <link name="support_link_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.18 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_1_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.18 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_1_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.18 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.18 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.1 -0.1" rpy="1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_3_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.1 -0.1" rpy="1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_3_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wrist_link">
+    <inertial>
+      <origin xyz="${wrist_origin}" rpy="0 0 0" />
+      <mass value="${wrist_mass}" />
+      <inertia ixx="${wrist_inertia}" ixy="0" ixz="0" iyy="${wrist_inertia}" iyz="0" izz="${wrist_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 -0.03 -0.1" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${wrist_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 -0.03 -0.1" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${wrist_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.02 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_4_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.02 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_4_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_5">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.02 0.0 0.1" rpy="-1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_5_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.02 0.0 0.1" rpy="-1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_5_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_6">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_6_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_6_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_7">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 0.0 -0.1" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${support_7_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 0.0 -0.1" rpy="1.5708 0.0 3.14" />
+      <geometry>
+        <mesh filename="${support_7_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_8">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 0.1 0.13" rpy="0.0 3.14 1.5708" />
+      <geometry>
+        <mesh filename="${support_8_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 0.1 0.13" rpy="0.0 3.14 1.5708" />
+      <geometry>
+        <mesh filename="${support_8_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_9">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.0 -0.025" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_9_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.0 -0.025" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${support_9_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="support_link_10">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_10_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.1 -0.1 0.0" rpy="0.0 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${support_10_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ==================== GRIPPER GROUP ==================== -->
+  <link name="gripper_rotation_link">
+    <inertial>
+      <origin xyz="${gripper_rotation_origin}" rpy="0 0 0" />
+      <mass value="${gripper_rotation_mass}" />
+      <inertia ixx="${gripper_rotation_inertia}" ixy="0" ixz="0" iyy="${gripper_rotation_inertia}" iyz="0" izz="${gripper_rotation_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.097 0.1" rpy="0.0 1.5708 0.0" />
+      <geometry>
+        <mesh filename="${gripper_rotation_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.097 0.1" rpy="0.0 1.5708 0.0" />
+      <geometry>
+        <mesh filename="${gripper_rotation_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_support_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${gripper_support_mass}" />
+      <inertia ixx="${gripper_support_inertia}" ixy="0" ixz="0" iyy="${gripper_support_inertia}" iyz="0" izz="${gripper_support_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.1 0.1" rpy="-1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${gripper_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.1 0.1" rpy="-1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${gripper_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_support_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${gripper_support_mass}" />
+      <inertia ixx="${gripper_support_inertia}" ixy="0" ixz="0" iyy="${gripper_support_inertia}" iyz="0" izz="${gripper_support_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${gripper_support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${gripper_support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="bottom_finger">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${finger_mass}" />
+      <inertia ixx="${finger_inertia}" ixy="0" ixz="0" iyy="${finger_inertia}" iyz="0" izz="${finger_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.1 0.1" rpy="-1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${bottom_finger_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.1 0.1" rpy="-1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${bottom_finger_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="top_finger">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${finger_mass}" />
+      <inertia ixx="${finger_inertia}" ixy="0" ixz="0" iyy="${finger_inertia}" iyz="0" izz="${finger_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.1 0.1" rpy="-1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${top_finger_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.1 0.1" rpy="-1.5708 0.0 1.5708" />
+      <geometry>
+        <mesh filename="${top_finger_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gear_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${gear_mass}" />
+      <inertia ixx="${gear_inertia}" ixy="0" ixz="0" iyy="${gear_inertia}" iyz="0" izz="${gear_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 -0.1 0.1" rpy="0.0 1.5708 0.0" />
+      <geometry>
+        <mesh filename="${gear_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.1 0.1" rpy="0.0 1.5708 0.0" />
+      <geometry>
+        <mesh filename="${gear_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="bottom_finger_support_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${bottom_finger_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${bottom_finger_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="bottom_finger_support_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${bottom_finger_support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${bottom_finger_support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="top_finger_support_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${top_finger_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${top_finger_support_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="top_finger_support_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${support_small_mass}" />
+      <inertia ixx="${support_small_inertia}" ixy="0" ixz="0" iyy="${support_small_inertia}" iyz="0" izz="${support_small_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${top_finger_support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.1 0.1" rpy="-1.5708 0.0 -1.5708" />
+      <geometry>
+        <mesh filename="${top_finger_support_2_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ==================== LOGO GROUP ==================== -->
+  <link name="logo_link_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${logo_mass}" />
+      <inertia ixx="${logo_inertia}" ixy="0" ixz="0" iyy="${logo_inertia}" iyz="0" izz="${logo_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="logo_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${logo_mass}" />
+      <inertia ixx="${logo_inertia}" ixy="0" ixz="0" iyy="${logo_inertia}" iyz="0" izz="${logo_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.0 0.1" rpy="-1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_blue}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.0 0.1" rpy="-1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="logo_link_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${logo_mass}" />
+      <inertia ixx="${logo_inertia}" ixy="0" ixz="0" iyy="${logo_inertia}" iyz="0" izz="${logo_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.0 0.1" rpy="-1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.0 0.1" rpy="-1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="logo_link_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="${logo_mass}" />
+      <inertia ixx="${logo_inertia}" ixy="0" ixz="0" iyy="${logo_inertia}" iyz="0" izz="${logo_inertia}" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.1 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+      <material name="${material_white}" />
+    </visual>
+    <collision>
+      <origin xyz="-0.1 0.0 -0.1" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <mesh filename="${logo_mesh}" scale="${mesh_scale}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ==================== JOINTS ==================== -->
+  <!-- <joint name="base_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint> -->
+
+  <joint name="base_rotation_joint" type="revolute">
+    <origin xyz="0.0 0.0 0.13" rpy="0.0 0.0 0.0" />
+    <parent link="base_link" />
+    <child link="base_rotation_link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="${base_rotation_lower}" upper="${base_rotation_upper}" effort="${base_rotation_effort}" velocity="${base_rotation_velocity}" />
+  </joint>
+
+  <joint name="base_joint_1" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="base_rotation_link" />
+    <child link="base_link_3" />
+  </joint>
+
+  <joint name="base_joint_2" type="fixed">
+    <origin xyz="0.0 -0.06 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="base_rotation_link" />
+    <child link="base_link_4" />
+  </joint>
+
+  <joint name="base_joint_3" type="fixed">
+    <origin xyz="0.0 0.06 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="base_rotation_link" />
+    <child link="base_link_5" />
+  </joint>
+
+  <joint name="shoulder_right_joint" type="revolute">
+    <origin xyz="0.015 0.015 0.1" rpy="0.0 0.0 0.0" />
+    <parent link="base_link_4" />
+    <child link="shoulder_right_link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="${shoulder_lower}" upper="${shoulder_upper}" effort="${shoulder_effort}" velocity="${shoulder_velocity}" />
+  </joint>
+
+  <joint name="shoulder_right_joint_1" type="fixed">
+    <origin xyz="-0.0125 0.02 0.095" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_right_link" />
+    <child link="shoulder_right_link_1" />
+  </joint>
+
+  <joint name="shoulder_right_joint_2" type="fixed">
+    <origin xyz="0.0 -0.008 0.1" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_right_link_1" />
+    <child link="shoulder_right_link_2" />
+  </joint>
+
+  <joint name="shoulder_left_joint" type="fixed">
+    <origin xyz="0.0 0.09 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_right_link" />
+    <child link="shoulder_left_link" />
+  </joint>
+
+  <joint name="shoulder_left_joint_1" type="fixed">
+    <origin xyz="-0.0125 -0.04 0.095" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link" />
+    <child link="shoulder_left_link_1" />
+  </joint>
+
+  <joint name="shoulder_left_joint_2" type="fixed">
+    <origin xyz="0.01 0.02 0.1" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link_1" />
+    <child link="shoulder_left_link_2" />
+  </joint>
+
+  <joint name="elbow_joint" type="revolute">
+    <origin xyz="0.005 0.03 0.12" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_right_link_2" />
+    <child link="elbow_link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="${elbow_lower}" upper="${elbow_upper}" effort="${elbow_effort}" velocity="${elbow_velocity}" />
+  </joint>
+
+  <joint name="elbow_support_joint" type="fixed">
+    <origin xyz="0.07 0.0 0.039" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_link" />
+    <child link="elbow_support_link" />
+  </joint>
+
+  <joint name="elbow_rotation_joint" type="revolute">
+    <origin xyz="0.06 0.0 0.008" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_support_link" />
+    <child link="elbow_rotation_link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="${elbow_lower}" upper="${elbow_upper}" effort="${elbow_effort}" velocity="${elbow_velocity}" />
+  </joint>
+
+  <joint name="support_joint_1" type="fixed">
+    <origin xyz="0.0 0.0 -0.045" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_rotation_link" />
+    <child link="support_link_1" />
+  </joint>
+
+  <joint name="support_joint_2" type="fixed">
+    <origin xyz="0.005 0.0 0.02" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_rotation_link" />
+    <child link="support_link_2" />
+  </joint>
+
+  <joint name="support_joint_3" type="fixed">
+    <origin xyz="0.154 0.0 -0.004" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_rotation_link" />
+    <child link="support_link_3" />
+  </joint>
+
+  <joint name="wrist_joint" type="revolute">
+    <origin xyz="0.05 -0.003 -0.002" rpy="0.0 0.0 0.0" />
+    <parent link="support_link_3" />
+    <child link="wrist_link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="${wrist_lower}" upper="${wrist_upper}" effort="${wrist_effort}" velocity="${wrist_velocity}" />
+  </joint>
+
+  <joint name="support_joint_4" type="fixed">
+    <origin xyz="0.08 -0.034 -0.005" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_rotation_link" />
+    <child link="support_link_4" />
+  </joint>
+
+  <joint name="support_joint_5" type="fixed">
+    <origin xyz="0.08 0.034 -0.005" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_rotation_link" />
+    <child link="support_link_5" />
+  </joint>
+
+  <joint name="support_joint_6" type="fixed">
+    <origin xyz="0.04 -0.035 -0.005" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_rotation_link" />
+    <child link="support_link_6" />
+  </joint>
+
+  <joint name="support_joint_7" type="fixed">
+    <origin xyz="0.04 0.035 -0.005" rpy="0.0 0.0 0.0" />
+    <parent link="elbow_rotation_link" />
+    <child link="support_link_7" />
+  </joint>
+
+  <joint name="support_joint_8" type="fixed">
+    <origin xyz="0.0 0.025 0.01" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_right_link_1" />
+    <child link="support_link_8" />
+  </joint>
+
+  <joint name="support_joint_9" type="fixed">
+    <origin xyz="0.0 -0.042 -0.055" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link" />
+    <child link="support_link_9" />
+  </joint>
+
+  <joint name="support_joint_10" type="fixed">
+    <origin xyz="-0.012 -0.025 0.04" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link_2" />
+    <child link="support_link_10" />
+  </joint>
+
+  <joint name="gear_joint" type="revolute">
+    <origin xyz="0.04 0.0 -0.005" rpy="0.0 0.0 0.0" />
+    <parent link="wrist_link" />
+    <child link="gripper_rotation_link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="${gear_lower}" upper="${gear_upper}" effort="${gear_effort}" velocity="${gear_velocity}" />
+  </joint>
+
+  <joint name="gripper_support_joint_1" type="fixed">
+    <origin xyz="0.05 0.005 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="gripper_rotation_link" />
+    <child link="gripper_support_link" />
+  </joint>
+
+  <joint name="gripper_support_joint_2" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="gripper_support_link" />
+    <child link="gripper_support_link_2" />
+  </joint>
+
+  <joint name="gripper_joint" type="revolute">
+    <origin xyz="0.008 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="gripper_support_link_2" />
+    <child link="gear_link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="${gripper_lower}" upper="${gripper_upper}" effort="${gripper_effort}" velocity="${gripper_velocity}" />
+  </joint>
+
+  <joint name="bottom_prismatic" type="prismatic">
+    <origin xyz="0.015 0.0 -0.013" rpy="0.0 0.0 0.0" />
+    <parent link="gripper_support_link_2" />
+    <child link="bottom_finger" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="${prismatic_lower}" upper="${prismatic_upper}" effort="${prismatic_effort}" velocity="${prismatic_velocity}" />
+    <mimic joint="gripper_joint" multiplier="0.02" offset="0" />
+  </joint>
+
+  <joint name="top_prismatic" type="prismatic">
+    <origin xyz="0.015 0.0 0.013" rpy="0.0 0.0 0.0" />
+    <parent link="gripper_support_link_2" />
+    <child link="top_finger" />
+    <axis xyz="0.0 -1.0 0.0" />
+    <limit lower="${prismatic_lower}" upper="${prismatic_upper}" effort="${prismatic_effort}" velocity="${prismatic_velocity}" />
+    <mimic joint="gripper_joint" multiplier="0.02" offset="0" />
+  </joint>
+
+  <joint name="bottom_finger_support_joint_1" type="fixed">
+    <origin xyz="0.002 0.02 0.01" rpy="0.0 0.0 0.0" />
+    <parent link="bottom_finger" />
+    <child link="bottom_finger_support_link" />
+  </joint>
+
+  <joint name="bottom_finger_support_joint_2" type="fixed">
+    <origin xyz="0.01 0.0 0.005" rpy="0.0 0.0 0.0" />
+    <parent link="bottom_finger_support_link" />
+    <child link="bottom_finger_support_link_2" />
+  </joint>
+
+  <joint name="top_finger_support_joint_1" type="fixed">
+    <origin xyz="0.002 -0.02 -0.01" rpy="0.0 0.0 0.0" />
+    <parent link="top_finger" />
+    <child link="top_finger_support_link" />
+  </joint>
+
+  <joint name="top_finger_support_joint_2" type="fixed">
+    <origin xyz="0.01 0.0 -0.0025" rpy="0.0 0.0 0.0" />
+    <parent link="top_finger_support_link" />
+    <child link="top_finger_support_link_2" />
+  </joint>
+
+  <joint name="logo_joint_1" type="fixed">
+    <origin xyz="0.0 -0.105 0.135" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link_2" />
+    <child link="logo_link_1" />
+  </joint>
+
+  <joint name="logo_joint_2" type="fixed">
+    <origin xyz="0.0 0.05 0.135" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link_2" />
+    <child link="logo_link_2" />
+  </joint>
+
+  <joint name="logo_joint_3" type="fixed">
+    <origin xyz="0.0 0.027 -0.005" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link" />
+    <child link="logo_link_3" />
+  </joint>
+
+  <joint name="logo_joint_4" type="fixed">
+    <origin xyz="0.0 -0.115 -0.005" rpy="0.0 0.0 0.0" />
+    <parent link="shoulder_left_link" />
+    <child link="logo_link_4" />
+  </joint>
+
+  <!-- ==================== ROS2 CONTROL ==================== -->
+  <ros2_control name="RobotController" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+    <joint name="base_rotation_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="shoulder_right_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="elbow_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="elbow_rotation_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="wrist_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="gear_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="gripper_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+  </ros2_control>
+
+</robot>

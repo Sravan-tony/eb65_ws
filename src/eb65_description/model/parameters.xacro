@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Mesh paths -->
+  <xacro:property name="base_mesh" value="file://$(find eb65_description)/meshes/001_simplified.stl" />
+  <xacro:property name="base_rotation_mesh" value="file://$(find eb65_description)/meshes/002_simplified.stl" />
+  <xacro:property name="base_link_3_mesh" value="file://$(find eb65_description)/meshes/003_simplified.stl" />
+  <xacro:property name="base_link_4_mesh" value="file://$(find eb65_description)/meshes/004_simplified.stl" />
+  <xacro:property name="base_link_5_mesh" value="file://$(find eb65_description)/meshes/005_simplified.stl" />
+  <xacro:property name="shoulder_right_mesh" value="file://$(find eb65_description)/meshes/006_simplified.stl" />
+  <xacro:property name="shoulder_right_1_mesh" value="file://$(find eb65_description)/meshes/007_simplified.stl" />
+  <xacro:property name="shoulder_right_2_mesh" value="file://$(find eb65_description)/meshes/008_simplified.stl" />
+  <xacro:property name="shoulder_left_mesh" value="file://$(find eb65_description)/meshes/009_simplified.stl" />
+  <xacro:property name="shoulder_left_1_mesh" value="file://$(find eb65_description)/meshes/010_simplified.stl" />
+  <xacro:property name="shoulder_left_2_mesh" value="file://$(find eb65_description)/meshes/011_simplified.stl" />
+  <xacro:property name="elbow_mesh" value="file://$(find eb65_description)/meshes/012_simplified.stl" />
+  <xacro:property name="elbow_support_mesh" value="file://$(find eb65_description)/meshes/013_simplified.stl" />
+  <xacro:property name="elbow_rotation_mesh" value="file://$(find eb65_description)/meshes/014_simplified.stl" />
+  <xacro:property name="support_1_mesh" value="file://$(find eb65_description)/meshes/015_simplified.stl" />
+  <xacro:property name="support_2_mesh" value="file://$(find eb65_description)/meshes/016_simplified.stl" />
+  <xacro:property name="support_3_mesh" value="file://$(find eb65_description)/meshes/017_simplified.stl" />
+  <xacro:property name="wrist_mesh" value="file://$(find eb65_description)/meshes/018_simplified.stl" />
+  <xacro:property name="support_4_mesh" value="file://$(find eb65_description)/meshes/019_simplified.stl" />
+  <xacro:property name="support_5_mesh" value="file://$(find eb65_description)/meshes/020_simplified.stl" />
+  <xacro:property name="support_6_mesh" value="file://$(find eb65_description)/meshes/021_simplified.stl" />
+  <xacro:property name="support_7_mesh" value="file://$(find eb65_description)/meshes/022_simplified.stl" />
+  <xacro:property name="support_8_mesh" value="file://$(find eb65_description)/meshes/023_simplified.stl" />
+  <xacro:property name="support_9_mesh" value="file://$(find eb65_description)/meshes/024_simplified.stl" />
+  <xacro:property name="support_10_mesh" value="file://$(find eb65_description)/meshes/025_simplified.stl" />
+  <xacro:property name="gripper_rotation_mesh" value="file://$(find eb65_description)/meshes/026_simplified.stl" />
+  <xacro:property name="gripper_support_mesh" value="file://$(find eb65_description)/meshes/027_simplified.stl" />
+  <xacro:property name="gripper_support_2_mesh" value="file://$(find eb65_description)/meshes/028_simplified.stl" />
+  <xacro:property name="bottom_finger_mesh" value="file://$(find eb65_description)/meshes/029_simplified.stl" />
+  <xacro:property name="gear_mesh" value="file://$(find eb65_description)/meshes/030_simplified.stl" />
+  <xacro:property name="top_finger_mesh" value="file://$(find eb65_description)/meshes/031_simplified.stl" />
+  <xacro:property name="bottom_finger_support_mesh" value="file://$(find eb65_description)/meshes/032_simplified.stl" />
+  <xacro:property name="top_finger_support_2_mesh" value="file://$(find eb65_description)/meshes/033_simplified.stl" />
+  <xacro:property name="bottom_finger_support_2_mesh" value="file://$(find eb65_description)/meshes/034_simplified.stl" />
+  <xacro:property name="top_finger_support_mesh" value="file://$(find eb65_description)/meshes/035_simplified.stl" />
+  <xacro:property name="logo_mesh" value="file://$(find eb65_description)/meshes/036_simplified.stl" />
+
+  <!-- Materials -->
+  <xacro:property name="material_blue" value="blue" />
+  <xacro:property name="material_gray" value="gray" />
+  <xacro:property name="material_white" value="white" />
+
+  <!-- Scale factor for meshes -->
+  <xacro:property name="mesh_scale" value="0.001 0.001 0.001" />
+
+  <!-- Base link inertias -->
+  <xacro:property name="base_footprint_mass" value="0.001" />
+  <xacro:property name="base_footprint_inertia" value="1e-6" />
+
+  <xacro:property name="base_link_mass" value="4.0" />
+  <xacro:property name="base_link_inertia" value="0.03" />
+  <xacro:property name="base_link_origin" value="0 0 0.065" />
+
+  <xacro:property name="base_rotation_mass" value="1.0" />
+  <xacro:property name="base_rotation_inertia" value="0.005" />
+
+  <xacro:property name="base_link_3_mass" value="1.0" />
+  <xacro:property name="base_link_3_inertia" value="0.005" />
+
+  <xacro:property name="base_link_4_mass" value="0.8" />
+  <xacro:property name="base_link_4_inertia" value="0.004" />
+
+  <xacro:property name="base_link_5_mass" value="0.7" />
+  <xacro:property name="base_link_5_inertia" value="0.0035" />
+
+  <xacro:property name="shoulder_mass" value="0.15" />
+  <xacro:property name="shoulder_inertia" value="0.00015" />
+  <xacro:property name="shoulder_right_origin" value="-0.0375 0.012 0.018" />
+  <xacro:property name="shoulder_left_origin" value="0.0375 -0.012 0.018" />
+
+  <xacro:property name="shoulder_small_mass" value="0.075" />
+  <xacro:property name="shoulder_small_inertia" value="7.5e-5" />
+
+  <xacro:property name="elbow_mass" value="0.1" />
+  <xacro:property name="elbow_inertia" value="0.0001" />
+  <xacro:property name="elbow_support_origin" value="0.0433 0 0.0027" />
+
+  <xacro:property name="support_small_mass" value="0.05" />
+  <xacro:property name="support_small_inertia" value="5e-5" />
+
+  <xacro:property name="wrist_mass" value="0.2" />
+  <xacro:property name="wrist_inertia" value="0.0002" />
+  <xacro:property name="wrist_origin" value="0.02 0 0" />
+
+  <xacro:property name="gripper_rotation_mass" value="0.15" />
+  <xacro:property name="gripper_rotation_inertia" value="0.00015" />
+  <xacro:property name="gripper_rotation_origin" value="0.025 0 0" />
+
+  <xacro:property name="gripper_support_mass" value="0.1" />
+  <xacro:property name="gripper_support_inertia" value="0.0001" />
+
+  <xacro:property name="finger_mass" value="0.08" />
+  <xacro:property name="finger_inertia" value="8e-5" />
+
+  <xacro:property name="gear_mass" value="0.1" />
+  <xacro:property name="gear_inertia" value="0.0001" />
+
+  <xacro:property name="logo_mass" value="0.01" />
+  <xacro:property name="logo_inertia" value="1e-5" />
+
+  <!-- Joint limits -->
+  <xacro:property name="base_rotation_lower" value="-3.14" />
+  <xacro:property name="base_rotation_upper" value="3.14" />
+  <xacro:property name="base_rotation_effort" value="10.0" />
+  <xacro:property name="base_rotation_velocity" value="5.0" />
+
+  <xacro:property name="shoulder_lower" value="-1.57" />
+  <xacro:property name="shoulder_upper" value="1.57" />
+  <xacro:property name="shoulder_effort" value="5.0" />
+  <xacro:property name="shoulder_velocity" value="3.0" />
+
+  <xacro:property name="elbow_lower" value="-1.57" />
+  <xacro:property name="elbow_upper" value="1.57" />
+  <xacro:property name="elbow_effort" value="5.0" />
+  <xacro:property name="elbow_velocity" value="3.0" />
+
+  <xacro:property name="wrist_lower" value="-1.57" />
+  <xacro:property name="wrist_upper" value="1.57" />
+  <xacro:property name="wrist_effort" value="5.0" />
+  <xacro:property name="wrist_velocity" value="3.0" />
+
+  <xacro:property name="gear_lower" value="-1.57" />
+  <xacro:property name="gear_upper" value="1.57" />
+  <xacro:property name="gear_effort" value="5.0" />
+  <xacro:property name="gear_velocity" value="3.0" />
+
+  <xacro:property name="gripper_lower" value="-0.55" />
+  <xacro:property name="gripper_upper" value="0.8" />
+  <xacro:property name="gripper_effort" value="2.0" />
+  <xacro:property name="gripper_velocity" value="2.0" />
+
+  <xacro:property name="prismatic_lower" value="-0.016" />
+  <xacro:property name="prismatic_upper" value="0.016" />
+  <xacro:property name="prismatic_effort" value="2.0" />
+  <xacro:property name="prismatic_velocity" value="1.0" />
+
+</robot>

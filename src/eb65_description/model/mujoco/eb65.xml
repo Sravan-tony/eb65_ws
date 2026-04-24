@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<mujoco model="eb65">
+  <compiler angle="radian" meshdir="/home/ros/eb65_ws/src/eb65_description/meshes/"/>
+
+  <default>
+    <joint damping="0.01" armature="0.01" frictionloss="0.1"/>
+  </default>
+
+  <asset>
+    <mesh name="001_simplified" file="001_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="002_simplified" file="002_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="003_simplified" file="003_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="004_simplified" file="004_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="005_simplified" file="005_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="006_simplified" file="006_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="007_simplified" file="007_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="008_simplified" file="008_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="009_simplified" file="009_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="010_simplified" file="010_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="011_simplified" file="011_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="012_simplified" file="012_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="013_simplified" file="013_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="014_simplified" file="014_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="015_simplified" file="015_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="016_simplified" file="016_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="017_simplified" file="017_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="018_simplified" file="018_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="019_simplified" file="019_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="020_simplified" file="020_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="021_simplified" file="021_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="022_simplified" file="022_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="023_simplified" file="023_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="024_simplified" file="024_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="025_simplified" file="025_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="026_simplified" file="026_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="027_simplified" file="027_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="028_simplified" file="028_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="029_simplified" file="029_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="030_simplified" file="030_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="031_simplified" file="031_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="032_simplified" file="032_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="033_simplified" file="033_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="034_simplified" file="034_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="035_simplified" file="035_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="036_simplified" file="036_simplified.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <body name="base_footprint" pos="0 0 0">
+      <geom type="cylinder" size="0.15 0.02" pos="0 0 -0.02" rgba="0.3 0.3 0.3 0.5" contype="0" conaffinity="0"/>
+      
+      <body name="base_link" pos="0 0 0">
+        <inertial pos="0 0 0" mass="1.2" diaginertia="0.06 0.06 0.06"/>
+        <geom pos="-0.1 -0.1 0" quat="1 0 0 0" type="mesh" mesh="001_simplified" rgba="0.2 0.2 0.8 1"/>
+        
+        <body name="base_rotation_link" pos="0 0 0.13">
+          <inertial pos="0 0 0" quat="0.707107 0.707107 0 0" mass="2.4" diaginertia="0.02832 0.02832 0.024"/>
+          <joint name="base_rotation_joint" type="hinge" axis="0 0 1" range="-3.14159 3.14159" damping="0.1" armature="0.05"/>
+          
+          <geom pos="0.1 -0.1 0" quat="-3.67321e-06 0 1 0" type="mesh" mesh="002_simplified" rgba="0.2 0.2 0.8 1"/>
+          <geom pos="0.1 -0.1 0" quat="0.707105 0 0 0.707108" type="mesh" mesh="003_simplified" rgba="0.5 0.5 0.5 1"/>
+          <geom pos="-0.09 -0.045 -0.02" quat="0.707105 0.707108 0 0" type="mesh" mesh="004_simplified" rgba="0.2 0.2 0.8 1"/>
+          <geom pos="0.11 0.045 -0.02" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" mesh="005_simplified" rgba="0.2 0.2 0.8 1"/>
+          
+          <body name="shoulder_right_link" pos="0.015 -0.045 0.1">
+            <inertial pos="-0.00553846 0.0428462 0.116538" quat="0.999923 0.00581514 -0.00799427 -0.00752614" mass="0.78" diaginertia="0.014772 0.013088 0.002511"/>
+            <joint name="shoulder_right_joint" type="hinge" axis="0 1 0" range="-1.5708 1.5708" damping="0.05" armature="0.03"/>
+            
+            <geom pos="0.1 0 -0.08" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" mesh="006_simplified" rgba="1 1 1 1"/>
+            <geom pos="-0.1125 0.04 0.055" quat="0.707105 0.707108 0 0" type="mesh" mesh="007_simplified" rgba="1 1 1 1"/>
+            <geom pos="-0.1025 0.012 0.195" quat="0.707105 0.707108 0 0" type="mesh" mesh="008_simplified" rgba="1 1 1 1"/>
+            <geom pos="0.0875 0.145 0.235" quat="0.000563087 -0.707108 0.707105 0.000563089" type="mesh" mesh="023_simplified" rgba="0.2 0.2 0.8 1"/>
+            <geom pos="-0.1 0.09 -0.08" quat="0.707105 0.707108 0 0" type="mesh" mesh="009_simplified" rgba="1 1 1 1"/>
+            <geom pos="0.0875 0.05 0.055" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" mesh="010_simplified" rgba="1 1 1 1"/>
+            <geom pos="0.0975 0.07 0.195" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" mesh="011_simplified" rgba="1 1 1 1"/>
+            <geom pos="0.0855 -0.055 0.235" quat="0.707105 0 0 0.707108" type="mesh" mesh="025_simplified" rgba="0.2 0.2 0.8 1"/>
+            <geom pos="-0.1025 -0.035 0.23" quat="0.707105 0.707108 0 0" type="mesh" mesh="036_simplified" rgba="0.2 0.2 0.8 1"/>
+            <geom pos="-0.1025 0.12 0.43" quat="0.707105 -0.707108 0 0" type="mesh" mesh="036_simplified" rgba="0.2 0.2 0.8 1"/>
+            <geom pos="-0.1 0.048 -0.08" quat="0.707105 0.707108 0 0" type="mesh" mesh="024_simplified" rgba="0.2 0.2 0.8 1"/>
+            <geom pos="-0.1 0.117 0.095" quat="0.707105 -0.707108 0 0" type="mesh" mesh="036_simplified" rgba="1 1 1 1"/>
+            <geom pos="-0.1 -0.025 -0.105" quat="0.707105 0.707108 0 0" type="mesh" mesh="036_simplified" rgba="1 1 1 1"/>
+            
+            <body name="elbow_link" pos="-0.0075 0.042 0.315">
+              <inertial pos="0.035 0 0.0195" quat="0.609652 0.358224 0.358224 0.609652" mass="0.12" diaginertia="0.0003126 0.0003126 0.00012"/>
+              <joint name="elbow_joint" type="hinge" axis="0 1 0" range="-2.0944 2.0944" damping="0.03" armature="0.02"/>
+              
+              <geom pos="-0.09 0.04 -0.08" quat="0.707105 0.707108 0 0" type="mesh" mesh="012_simplified" rgba="0.2 0.2 0.8 1"/>
+              <geom pos="0.07 -0.1 -0.061" quat="0.499998 0.5 0.500002 0.5" type="mesh" mesh="013_simplified" rgba="1 1 1 1"/>
+              
+              <body name="elbow_rotation_link" pos="0.13 0 0.047">
+                <inertial pos="0.049875 0 -0.006125" quat="0 0.692369 0 0.721544" mass="0.48" diaginertia="0.001958 0.001805 0.000898"/>
+                <joint name="elbow_rotation_joint" type="hinge" axis="1 0 0" range="-3.14159 3.14159" damping="0.03" armature="0.02"/>
+                
+                <geom pos="0 -0.1 -0.1" quat="0.499998 0.5 0.500002 0.5" type="mesh" mesh="014_simplified" rgba="1 1 1 1"/>
+                <geom pos="0.18 -0.1 -0.045" quat="0.707105 0 0 0.707108" type="mesh" mesh="015_simplified" rgba="1 1 1 1"/>
+                <geom pos="0.185 -0.1 0.02" quat="0.707105 0 0 0.707108" type="mesh" mesh="016_simplified" rgba="1 1 1 1"/>
+                <geom pos="0.154 -0.1 -0.104" quat="0.499998 0.5 0.500002 0.5" type="mesh" mesh="017_simplified" rgba="1 1 1 1"/>
+                <geom pos="0.06 -0.034 -0.105" quat="0.707105 0.707108 0 0" type="mesh" mesh="019_simplified" rgba="0.2 0.2 0.8 1"/>
+                <geom pos="0.06 0.034 0.095" quat="0.707105 -0.707108 0 0" type="mesh" mesh="020_simplified" rgba="0.2 0.2 0.8 1"/>
+                <geom pos="-0.06 -0.035 -0.105" quat="0.707105 0.707108 0 0" type="mesh" mesh="021_simplified" rgba="0.2 0.2 0.8 1"/>
+                <geom pos="0.14 0.035 -0.105" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" mesh="022_simplified" rgba="0.2 0.2 0.8 1"/>
+                
+                <body name="wrist_link" pos="0.204 -0.003 -0.006">
+                  <inertial pos="0 0 0" mass="0.09" diaginertia="0.00009 0.00009 0.00009"/>
+                  <joint name="wrist_joint" type="hinge" axis="0 1 0" range="-1.0472 1.0472" damping="0.02" armature="0.01"/>
+                  
+                  <geom pos="0.1 -0.03 -0.1" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" mesh="018_simplified" rgba="0.2 0.2 0.8 1"/>
+                  
+                  <body name="gripper_rotation_link" pos="0.04 0 -0.005">
+                    <inertial pos="0.0333333 0.00333333 0" quat="0.474472 0.474472 0.524286 0.524286" mass="0.18" diaginertia="0.000281 0.000281 0.00018"/>
+                    <joint name="gear_joint" type="hinge" axis="1 0 0" range="-1.0472 1.0472" damping="0.05" armature="0.02"/>
+                    
+                    <geom pos="0 -0.097 0.1" quat="0.707105 0 0.707108 0" type="mesh" mesh="026_simplified" rgba="1 1 1 1"/>
+                    <geom pos="0.05 -0.095 0.1" quat="0.499998 -0.5 -0.500002 0.5" type="mesh" mesh="027_simplified" rgba="1 1 1 1"/>
+                    <geom pos="0.05 0.105 0.1" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" mesh="028_simplified" rgba="1 1 1 1"/>
+                    
+                    <body name="gear_link" pos="0.058 0.005 0">
+                      <inertial pos="0 0 0" mass="0.03" diaginertia="3e-05 3e-05 3e-05"/>
+                      <joint name="gripper_joint" type="hinge" axis="1 0 0" range="-0.55 0.8" damping="0.1" armature="0.01"/>
+                      <geom pos="0 -0.1 0.1" quat="0.707105 0 0.707108 0" type="mesh" mesh="030_simplified" rgba="0.2 0.2 0.8 1"/>
+                    </body>
+                    
+                    <body name="bottom_finger" pos="0.065 0.005 -0.013">
+                      <inertial pos="0.00466667 0.0133333 0.00833333" quat="0.375916 0.388911 -0.781238 0.311613" mass="0.03" diaginertia="0.000208 0.000205 0.000183"/>
+                      <joint name="bottom_prismatic" type="slide" axis="0 1 0" range="-0.016 0.016" damping="0.05"/>
+                      <geom pos="0 -0.1 0.1" quat="0.499998 -0.5 -0.500002 0.5" type="mesh" mesh="029_simplified" rgba="0.2 0.2 0.8 1"/>
+                      <geom pos="0.002 0.12 0.11" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" mesh="032_simplified" rgba="0.2 0.2 0.8 1"/>
+                      <geom pos="0.012 0.12 0.115" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" mesh="034_simplified" rgba="0.2 0.2 0.8 1"/>
+                    </body>
+                    
+                    <body name="top_finger" pos="0.065 0.005 0.013">
+                      <inertial pos="0.00466667 -0.0133333 -0.0075" quat="0.292662 0.724213 -0.4597 0.42254" mass="0.03" diaginertia="0.000206 0.000204 0.000183"/>
+                      <joint name="top_prismatic" type="slide" axis="0 -1 0" range="-0.016 0.016" damping="0.05"/>
+                      <geom pos="0 -0.1 0.1" quat="0.499998 -0.5 -0.500002 0.5" type="mesh" mesh="031_simplified" rgba="0.2 0.2 0.8 1"/>
+                      <geom pos="0.002 0.08 0.09" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" mesh="035_simplified" rgba="0.2 0.2 0.8 1"/>
+                      <geom pos="0.012 0.08 0.0875" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" mesh="033_simplified" rgba="0.2 0.2 0.8 1"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="base_rotation_actuator" joint="base_rotation_joint" ctrlrange="-3.14159 3.14159" ctrllimited="true" kp="100" kv="10"/>
+    <position name="shoulder_right_actuator" joint="shoulder_right_joint" ctrlrange="-1.5708 1.5708" ctrllimited="true" kp="100" kv="10"/>
+    <position name="elbow_actuator" joint="elbow_joint" ctrlrange="-2.0944 2.0944" ctrllimited="true" kp="50" kv="5"/>
+    <position name="elbow_rotation_actuator" joint="elbow_rotation_joint" ctrlrange="-3.14159 3.14159" ctrllimited="true" kp="30" kv="3"/>
+    <position name="wrist_actuator" joint="wrist_joint" ctrlrange="-1.0472 1.0472" ctrllimited="true" kp="20" kv="2"/>
+    <position name="gripper_actuator" joint="gripper_joint" ctrlrange="-0.55 0.8" ctrllimited="true" kp="10" kv="1"/>
+  </actuator>
+</mujoco>

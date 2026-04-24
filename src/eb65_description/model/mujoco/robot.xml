@@ -1,0 +1,138 @@
+<mujoco model="eb65">
+  <compiler angle="radian" meshdir="/home/ros/eb65_ws/src/eb65_description/meshes/"/>
+  <default>
+    <joint damping="0.01" armature="0.01" frictionloss="0.1"/>
+  </default>
+
+  <asset>
+    <mesh name="001_simplified" file="001_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="002_simplified" file="002_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="003_simplified" file="003_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="004_simplified" file="004_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="005_simplified" file="005_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="006_simplified" file="006_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="007_simplified" file="007_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="008_simplified" file="008_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="009_simplified" file="009_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="010_simplified" file="010_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="011_simplified" file="011_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="012_simplified" file="012_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="013_simplified" file="013_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="014_simplified" file="014_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="015_simplified" file="015_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="016_simplified" file="016_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="017_simplified" file="017_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="018_simplified" file="018_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="019_simplified" file="019_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="020_simplified" file="020_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="021_simplified" file="021_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="022_simplified" file="022_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="023_simplified" file="023_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="024_simplified" file="024_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="025_simplified" file="025_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="026_simplified" file="026_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="027_simplified" file="027_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="028_simplified" file="028_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="029_simplified" file="029_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="031_simplified" file="031_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="030_simplified" file="030_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="032_simplified" file="032_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="034_simplified" file="034_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="035_simplified" file="035_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="033_simplified" file="033_simplified.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="036_simplified" file="036_simplified.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <geom pos="-0.1 -0.1 0" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="001_simplified"/>
+    <body name="base_rotation_link" pos="0 0 0.13">
+      <inertial pos="0 0 0" quat="0.707107 0.707107 0 0" mass="4" diaginertia="0.0472 0.0472 0.04"/>
+      <joint name="base_rotation_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+      <geom pos="0.1 -0.1 0" quat="-3.67321e-06 0 1 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="002_simplified"/>
+      <geom pos="0.1 -0.1 0" quat="0.707105 0 0 0.707108" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="003_simplified"/>
+      <geom pos="-0.09 -0.045 -0.02" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="004_simplified"/>
+      <geom pos="0.11 0.045 -0.02" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="005_simplified"/>
+      <body name="shoulder_right_link" pos="0.015 -0.045 0.1">
+        <inertial pos="-0.00553846 0.0428462 0.116538" quat="0.999923 0.00581514 -0.00799427 -0.00752614" mass="1.3" diaginertia="0.02462 0.0218141 0.00418509"/>
+        <joint name="shoulder_right_joint" pos="0 0 0" axis="0 1 0" range="-1 1"/>
+        <geom pos="0.1 0 -0.08" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="006_simplified"/>
+        <geom pos="-0.1125 0.04 0.055" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="007_simplified"/>
+        <geom pos="-0.1025 0.012 0.195" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="008_simplified"/>
+        <geom pos="0.0875 0.145 0.235" quat="0.000563087 -0.707108 0.707105 0.000563089" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="023_simplified"/>
+        <geom pos="-0.1 0.09 -0.08" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="009_simplified"/>
+        <geom pos="0.0875 0.05 0.055" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="010_simplified"/>
+        <geom pos="0.0975 0.07 0.195" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="011_simplified"/>
+        <geom pos="0.0855 -0.055 0.235" quat="0.707105 0 0 0.707108" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="025_simplified"/>
+        <geom pos="-0.1025 -0.035 0.23" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="036_simplified"/>
+        <geom pos="-0.1025 0.12 0.43" quat="0.707105 -0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="036_simplified"/>
+        <geom pos="-0.1 0.048 -0.08" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="024_simplified"/>
+        <geom pos="-0.1 0.117 0.095" quat="0.707105 -0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="036_simplified"/>
+        <geom pos="-0.1 -0.025 -0.105" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="036_simplified"/>
+        <body name="elbow_link" pos="-0.0075 0.042 0.315">
+          <inertial pos="0.035 0 0.0195" quat="0.609652 0.358224 0.358224 0.609652" mass="0.2" diaginertia="0.00052105 0.00052105 0.0002"/>
+          <joint name="elbow_joint" pos="0 0 0" axis="0 1 0" range="-1 1"/>
+          <geom pos="-0.09 0.04 -0.08" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="012_simplified"/>
+          <geom pos="0.07 -0.1 -0.061" quat="0.499998 0.5 0.500002 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="013_simplified"/>
+          <body name="elbow_rotation_link" pos="0.13 0 0.047">
+            <inertial pos="0.049875 0 -0.006125" quat="0 0.692369 0 0.721544" mass="0.8" diaginertia="0.00326329 0.00300818 0.00149728"/>
+            <joint name="elbow_rotation_joint" pos="0 0 0" axis="1 0 0" range="-1 1"/>
+            <geom pos="0 -0.1 -0.1" quat="0.499998 0.5 0.500002 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="014_simplified"/>
+            <geom pos="0.18 -0.1 -0.045" quat="0.707105 0 0 0.707108" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="015_simplified"/>
+            <geom pos="0.185 -0.1 0.02" quat="0.707105 0 0 0.707108" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="016_simplified"/>
+            <geom pos="0.154 -0.1 -0.104" quat="0.499998 0.5 0.500002 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="017_simplified"/>
+            <geom pos="0.06 -0.034 -0.105" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="019_simplified"/>
+            <geom pos="0.06 0.034 0.095" quat="0.707105 -0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="020_simplified"/>
+            <geom pos="-0.06 -0.035 -0.105" quat="0.707105 0.707108 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="021_simplified"/>
+            <geom pos="0.14 0.035 -0.105" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="022_simplified"/>
+            <body name="wrist_link" pos="0.204 -0.003 -0.006">
+              <inertial pos="0 0 0" mass="0.1" diaginertia="0.0001 0.0001 0.0001"/>
+              <joint name="wrist_joint" pos="0 0 0" axis="0 1 0" range="-1 1"/>
+              <geom pos="0.1 -0.03 -0.1" quat="0.000563087 0.000563089 0.707108 0.707105" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="018_simplified"/>
+              <body name="gripper_rotation_link" pos="0.04 0 -0.005">
+                <inertial pos="0.0333333 0.00333333 0" quat="0.474472 0.474472 0.524286 0.524286" mass="0.3" diaginertia="0.000468333 0.000468333 0.0003"/>
+                <joint name="gear_joint" pos="0 0 0" axis="1 0 0" range="-1 1"/>
+                <geom pos="0 -0.097 0.1" quat="0.707105 0 0.707108 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="026_simplified"/>
+                <geom pos="0.05 -0.095 0.1" quat="0.499998 -0.5 -0.500002 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="027_simplified"/>
+                <geom pos="0.05 0.105 0.1" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="028_simplified"/>
+                <body name="gear_link" pos="0.058 0.005 0">
+                  <inertial pos="0 0 0" mass="0.1" diaginertia="0.0001 0.0001 0.0001"/>
+                  <joint name="gripper_joint" pos="0 0 0" axis="1 0 0" range="-0.55 0.8"/>
+                  <geom pos="0 -0.1 0.1" quat="0.707105 0 0.707108 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="030_simplified"/>
+                </body>
+                <body name="bottom_finger" pos="0.065 0.005 -0.013">
+                  <inertial pos="0.00466667 0.0133333 0.00833333" quat="0.375916 0.388911 -0.781238 0.311613" mass="0.001" diaginertia="1e-6 1e-6 1e-6"/>
+                  <joint name="bottom_prismatic" pos="0 0 0" axis="0 1 0" type="slide" range="-0.016 0.016" damping="100" armature="0.001" frictionloss="50"/>
+                  <geom pos="0 -0.1 0.1" quat="0.499998 -0.5 -0.500002 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="029_simplified"/>
+                  <geom pos="0.002 0.12 0.11" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="032_simplified"/>
+                  <geom pos="0.012 0.12 0.115" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="034_simplified"/>
+                </body>
+                <body name="top_finger" pos="0.065 0.005 0.013">
+                  <inertial pos="0.00466667 -0.0133333 -0.0075" quat="0.292662 0.724213 -0.4597 0.42254" mass="0.001" diaginertia="1e-6 1e-6 1e-6"/>
+                  <joint name="top_prismatic" pos="0 0 0" axis="0 1 0" type="slide" range="-0.016 0.016" damping="100" armature="0.001" frictionloss="50"/>
+                  <geom pos="0 -0.1 0.1" quat="0.499998 -0.5 -0.500002 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="031_simplified"/>
+                  <geom pos="0.002 0.08 0.09" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="035_simplified"/>
+                  <geom pos="0.012 0.08 0.0875" quat="0.499998 -0.5 0.500002 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.8 1" mesh="033_simplified"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="base"           joint="base_rotation_joint"             ctrlrange="-3.14 3.14"  kp="100"  kv="10"/>
+    <position name="shoulder"       joint="shoulder_right_joint"            ctrlrange="-1.5 0.8"    kp="100"  kv="10"/>
+    <position name="elbow"          joint="elbow_joint"                     ctrlrange="-1.5 1.5"    kp="50"   kv="5"/>
+    <position name="elbow_rotation" joint="elbow_rotation_joint"            ctrlrange="-3.14 3.14"  kp="30"   kv="3"/>
+    <position name="wrist"          joint="wrist_joint"                     ctrlrange="-1.0 1.0"    kp="20"   kv="2"/>
+    <position name="gear"           joint="gear_joint"                      ctrlrange="-1.0 1.0"    kp="20"   kv="2"/>
+    <position name="gripper"        joint="gripper_joint"                   ctrlrange="-0.55 0.8"   kp="50"   kv="5"/>
+  </actuator>
+
+  <equality>
+    <joint joint1="gripper_joint" joint2="bottom_prismatic" polycoef="0 0.02"/>
+    <joint joint1="gripper_joint" joint2="top_prismatic" polycoef="0 -0.02"/>
+  </equality>
+</mujoco>
