@@ -1,5 +1,7 @@
 # Installation Guide
 
+![EB65 demo](./eb65test.gif)
+
 # System Requirements
 
 - **Operating System**  : Recommended Ubunutu 18.04 or later
