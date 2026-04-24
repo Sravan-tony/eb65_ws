@@ -1,6 +1,5 @@
-# Installation Guide
-
 ![EB65 demo](./eb65test.gif)
+# Installation Guide
 
 # System Requirements
 
