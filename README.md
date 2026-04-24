@@ -43,3 +43,10 @@ pip3 install mujoco
 pip3 install pygame
 ```
 ---
+
+## To run simulation
+```sh
+cd src/eb65_description/scripts/
+
+python3 eb65_demo.py
+```
